@@ -15,7 +15,7 @@ var margin = {top: 20, right: 30, bottom: 40, left: 90},
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
-d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/7_OneCatOneNum_header.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/data.csv", function(data) {
 var x = d3.scaleLinear()
     .domain([0, 13000])
     .range([ 0, width]);
@@ -46,7 +46,7 @@ const draw = async (el = "#Grafica2") => {
   // Selección de gráfica
   const graf = d3.select("#Grafica2")
   // Carga del dataset
-  const dataset = await d3.csv("datagraph2.csv", d3.autoType)
+  const dataset = await d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datagraph2.csv", d3.autoType)
   console.log(dataset)
   // Dimensiones
   const anchoTotal = +graf.style("width").slice(0, -2)
