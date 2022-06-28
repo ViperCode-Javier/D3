@@ -1,0 +1,133 @@
+
+<!----------------------------------------------------Actividad grupal: Análisis tendencias en D3.js ---------------------------------------------------->
+<!--Carlos Alberto Henriquez Carillo -->
+<!--Cesar Ramos Aguilar -->
+<!--Javier Alfredo Flores Cuellar -->
+<!--Marisela de Jesus Huerta-->
+<!----------------------------------------------------Actividad grupal: Análisis tendencias en D3.js ---------------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actividad grupal: Análisis tendencias en D3.js</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <head>
+      <!---------------------------------------------------- Barra de Navegacion ---------------------------------------------------->
+      <div class="p-5 bg-primary text-white text-center">
+        <h1>Actividad grupal: Análisis tendencias en D3.js</h1>
+        <p>Creacion de Dashboard en D3</p> 
+      </div>   
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+        <button class="navbar-toggler" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false" 
+          aria-label="Toggle navigation">  
+           <span class="navbar-toggler-icon"></span>           
+          </button>
+             <!---------------------------------------------------- Imagen ---------------------------------------------------->
+          <img src="http://www.universidadyemprendimiento.es/images/universidades/universidad-internacional-de-la-rioja/universidad-internacional-de-la-rioja-portada.svg" height="60" alt="Unir Logo" loading="lazy"/>
+          <a class="navbar-brand" href="#">GRUPO 31</a>            
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Marisela de Jesus Huerta</a>
+                <a class="nav-link active" aria-current="page" href="#">Carlos Alberto Henriquez Carillo</a>
+                <a class="nav-link active" aria-current="page" href="#">Cesar Ramos Aguilar</a>
+                <a class="nav-link active" aria-current="page" href="#">Javier Alfredo Flores Cuellar</a>                
+              </li>  
+            </ul>
+          </div>
+        </div>
+      </nav>  
+</head>
+   <!---------------------------------------------------- Cuerpo de la Pagina ---------------------------------------------------->
+<body>
+   <!---------------------------------------------------- Primeras Dos Graficas ---------------------------------------------------->
+  <div class="container .bg-gray"> <div class="p-3 "></div></div>
+  <div class="container-fluid">
+  <div class="container overflow-hidden">
+    <div class="row gx-5">
+      <div class="col">
+        <h5 class="text-uppercase"><b>Grafica 1</b></h5>  
+        <select id="metrica" class="form-control my-2"></select>
+       <div class="p-3 border bg-light" id="Grafica1"></div>
+      </div>
+      <div class="col">
+        <h5 class="text-uppercase"><b>Grafica 2</b></h5>  
+        <select id="metrica" class="form-control my-2"></select>
+        <div class="p-3 border bg-light"id="Grafica2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!---------------------------------------------------- Segundas Dos Graficas ---------------------------------------------------->
+<div class="container .bg-gray"> <div class="p-3 "></div></div>
+  <div class="container-fluid">
+  <div class="container overflow-hidden">
+    <div class="row gx-5">
+      <div class="col">
+        <h5 class="text-uppercase"><b>Grafica 3</b></h5>  
+        <select id="metrica" class="form-control my-2"></select>
+       <div class="p-3 border bg-light " id="Grafica3"></div>
+      </div>
+      <div class="col">
+        <h5 class="text-uppercase"><b>Grafica 4</b></h5>  
+        <select id="metrica" class="form-control my-2"></select>
+        <div class="p-3 border bg-light" id="Grafica4"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+   <!---------------------------------------------------- Pie de Pagina ------------------------------------------------------->
+   <footer class="bg-light text-center text-lg-start">  
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase"><b>Fuentes de datos</b></h5>  
+          <p>
+            La Encuesta Nacional de Ocupación y Empleo (ENOE) es la principal fuente
+            de información sobre el mercado laboral mexicano al ofrecer datos 
+            mensuales y trimestrales de la fuerza de trabajo, la ocupación, la 
+            informalidad laboral, la subocupación y la desocupación. Constituye
+            también el proyecto estadístico continuo más grande del país al 
+            proporcionar cifras nacionales y de cuatro tamaños de localidad, 
+            de cada una de las 32 entidades federativas y para un total 
+            de 39 ciudades.
+          </p>
+        </div>
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase"><b>Análisis tendencias en D3.js</b></h5>  
+          <p>
+            Como opción se propone que la identificación de las fuentes de datos 
+            a utilizar en esta  actividad  se  base  en  cualquier  de  los
+            conjuntos  de  datos  disponibles  en  el catálogo de fuentes de datos
+            abiertas, Los alumnos utilizará sus propias fuentes de datos para la 
+            realización del caso, tomando como referencia cualquiera de las fuentes 
+            existentes en Internet.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      <b>Herramientas de Visualización de datos | Maestria en Análisis y Visualización de Datos</b>
+      <p>
+        Marisela de Jesus Huerta | Carlos Alberto Henriquez Carillo | Cesar Ramos Aguilar |Javier Alfredo Flores Cuellar
+      </p>
+    </div>
+     <!---------------------------------------------------- Imagen  ------------------------------------------------------->
+    <img src="https://www.infersol.com/wp-content/uploads/2020/02/business-intelligence-banner-1.jpg" class="expandimage" alt="...">
+  </footer>
+   <!---------------------------------------------------- Scripts--------- ---------------------------------------------------->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.4.4/d3.min.js" integrity="sha512-hnFpvCiJ8Fr1lYLqcw6wLgFUOEZ89kWCkO+cEekwcWPIPKyknKV1eZmSSG3UxXfsSuf+z/SgmiYB1zFOg3l2UQ==" crossorigin="anonymous" referrerpolicy="no-referrer" ></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="js/app.js"></script>
+</html>
