@@ -1,13 +1,7 @@
-
-/////////////////////////////////////////////////////////////////////////////////DATOS COMUNES////////////////////////////////////////////////////////////////////////
-//const draw = async (variable = "ArchivoAnalisis") => {
-//data = await d3.csv("data.csv", d3.autoType)}
-
 /////////////////////////////////////////////////////////////////////////////////GRAFICA 1//////////////////////////////////////////////////////////////////////////
 var margin = {top: 20, right: 30, bottom: 40, left: 90},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
-
     var svg = d3.select("#Grafica1")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -42,87 +36,81 @@ var x = d3.scaleLinear()
     .attr("fill", "#69b3a2")
 })
 /////////////////////////////////////////////////////////////////////////////////GRAFICA 2//////////////////////////////////////////////////////////////////////////
-const draw = async (el = "#Grafica2") => {
-  // Selección de gráfica
-  const graf = d3.select("#Grafica2")
-  // Carga del dataset
-  const dataset = await d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datagraph2.csv", d3.autoType)
-  console.log(dataset)
-  // Dimensiones
-  const anchoTotal = +graf.style("width").slice(0, -2)
-  const altoTotal = anchoTotal * 0.5
-  const margins = { top: 20, right: 20, bottom: 75, left: 100 }
-  const alto = altoTotal - margins.top - margins.bottom
-  const ancho = anchoTotal - margins.left - margins.right
-  // Accessors
-  const xAccessor = (d) => d.income
-  const yAccessor = (d) => d.life_exp
-  const rAccessor = (d) => d.population
-  // Escaladores
-  const x = d3
-    .scaleLinear()
-    .domain(d3.extent(dataset, xAccessor))
-    .range([0, ancho])
+const graf = d3.select("#Grafica2")
+const anchoTotal = +graf.style("width").slice(0, -2)
+const altoTotal = (anchoTotal * 9) / 16
+const margins = {
+  top: 60,
+  right: 20,
+  bottom: 75,
+  left: 100,
+}
+const ancho = anchoTotal - margins.left - margins.right
+const alto = altoTotal - margins.top - margins.bottom
+const svg2 = graf
+  .append("svg2")
+  .attr("width", anchoTotal)
+  .attr("height", altoTotal)
+  .attr("class", "graf")
+const layer = svg2
+  .append("g")
+  .attr("transform", `translate(${margins.left}, ${margins.top})`)
+layer
+  .append("rect")
+  .attr("height", alto)
+  .attr("width", ancho)
+  .attr("fill", "white")
+const g = svg2
+  .append("g")
+  .attr("transform", `translate(${margins.left}, ${margins.top})`)
+const load = async (variable = "clientes") => {
+  data = await d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datagraph2.csv", d3.autoType)
+  const yAccessor = (d) => d[variable]
+  const xAccessor = (d) => d.tienda
+  //data.sort((a, b) => yAccessor(b) - yAccessor(a))
   const y = d3
     .scaleLinear()
-    .domain(d3.extent(dataset, yAccessor))
+    .domain([0, d3.max(data, yAccessor)])
     .range([alto, 0])
-    .nice()
-  const r = d3
-    .scaleLinear()
-    .domain(d3.extent(dataset, rAccessor))
-    .range([2, 150])
-    .nice()
-
-  // Espacio de gráfica
-  const svg = graf
-    .append("svg")
-    .classed("graf", true)
-    .attr("width", anchoTotal)
-    .attr("height", altoTotal)
-  svg
-    .append("g")
+  console.log(data)
+  console.log(d3.map(data, xAccessor))
+  const x = d3
+    .scaleBand()
+    .domain(d3.map(data, xAccessor))
+    .range([0, ancho])
+    .paddingOuter(0.2)
+    .paddingInner(0.1)
+  const rect = g
+    .selectAll("rect")
+    .data(data)
+    .enter()
     .append("rect")
-    .attr("transform", `translate(${margins.left}, ${margins.top})`)
-    .attr("width", ancho)
-    .attr("height", alto)
-    .attr("class", "backdrop")
-  const chart = svg
-    .append("g")
-    .attr("transform", `translate(${margins.left}, ${margins.top})`)
-  // Dibujar los puntos
-  const circles = chart
-    .selectAll("circle")
-    .data(dataset)
-    .join("circle")
-    .attr("cx", (d) => x(xAccessor(d)))
-    .attr("cy", (d) => y(yAccessor(d)))
-    .attr("r", (d) => r(rAccessor(d)))
-  // Ejes
-  const xAxis = d3
-    .axisBottom(x)
-    .ticks(5)
-    .tickFormat((d) => d.toLocaleString())
-  const yAxis = d3.axisLeft(y)
-  const xAxisGroup = chart
+    .attr("x", (d) => x(xAccessor(d)))
+    .attr("y", (d) => y(yAccessor(d)))
+    .attr("width", x.bandwidth())
+    .attr("height", (d) => alto - y(yAccessor(d)))
+    .attr("fill", "#e9c46a")
+  const et = g
+    .selectAll("text")
+    .data(data)
+    .enter()
+    .append("text")
+    .attr("x", (d) => x(xAccessor(d)) + x.bandwidth() / 2)
+    .attr("y", (d) => y(yAccessor(d)))
+    .text(yAccessor)
+  g.append("text")
+    .attr("x", ancho / 2)
+    .attr("y", -15)
+    .classed("titulo", true)
+    .text(`${variable} de las Tiendas`)
+  const xAxis = d3.axisBottom(x)
+  const yAxis = d3.axisLeft(y).ticks(8)
+  const xAxisGroup = g
     .append("g")
     .attr("transform", `translate(0, ${alto})`)
-    .call(xAxis)
     .classed("axis", true)
-  const yAxisGroup = chart.append("g").call(yAxis).classed("axis", true)
-  xAxisGroup
-    .append("text")
-    .attr("x", ancho / 2)
-    .attr("y", margins.bottom - 10)
-    .attr("fill", "black")
-    .text("Ingreso Per Cápita")
-  yAxisGroup
-    .append("text")
-    .attr("x", -alto / 2)
-    .attr("y", -margins.left + 30)
-    .attr("fill", "black")
-    .style("text-anchor", "middle")
-    .style("transform", "rotate(270deg)")
-    .text("Expectativa de Vida")
+    .call(xAxis)
+  const yAxisGroup = g.append("g").classed("axis", true).call(yAxis)
 }
-draw()
+load("margen")
+
