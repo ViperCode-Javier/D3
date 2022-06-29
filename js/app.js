@@ -1,7 +1,13 @@
+
+/////////////////////////////////////////////////////////////////////////////////CONSTANTESGLOBALES///////////////////////////////////////////////////////////////////
+const WidthCaja = 460
+const HeightCaja =400
+
+
 /////////////////////////////////////////////////////////////////////////////////GRAFICA 1//////////////////////////////////////////////////////////////////////////
 var margin = {top: 20, right: 30, bottom: 40, left: 90},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    width = WidthCaja - margin.left - margin.right,
+    height = HeightCaja - margin.top - margin.bottom;
     var svg = d3.select("#Grafica1")
   .append("svg")
     .attr("width", width + margin.left + margin.right)

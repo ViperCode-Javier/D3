@@ -2,8 +2,8 @@
 /////////////////////////////////////////////////////////////////////////////////GRAFICA 2//////////////////////////////////////////////////////////////////////////
 
 var margin3 = {top: 10, right: 30, bottom: 30, left: 60},
-    width3 = 460 - margin3.left - margin3.right,
-    height3 = 400 - margin3.top - margin3.bottom;
+    width3 = WidthCaja - margin3.left - margin3.right,
+    height3 = HeightCaja- margin3.top - margin3.bottom;
 
 
 var svg3 = d3.select("#Grafica3")

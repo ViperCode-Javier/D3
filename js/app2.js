@@ -2,8 +2,8 @@
 /////////////////////////////////////////////////////////////////////////////////GRAFICA 2//////////////////////////////////////////////////////////////////////////
 
 var margin2 = {top: 10, right: 30, bottom: 40, left: 50},
-    width2 = 460 - margin2.left - margin2.right,
-    height2 = 400 - margin2.top - margin2.bottom;
+    width2 = WidthCaja - margin2.left - margin2.right,
+    height2 = HeightCaja - margin2.top - margin2.bottom;
 var Svg2 = d3.select("#Grafica2")
   .append("svg")
     .attr("width", width2 + margin2.left + margin2.right)
