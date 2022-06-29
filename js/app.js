@@ -13,7 +13,7 @@ var margin = {top: 20, right: 30, bottom: 40, left: 90},
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
-d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/data.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datatrabajo1.csv", function(data) {
 var x = d3.scaleLinear()
     .domain([0, 13000])
     .range([ 0, width]);
