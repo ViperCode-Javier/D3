@@ -3,7 +3,7 @@
 const WidthCaja = 460
 const HeightCaja =400
 /////////////////////////////////////////////////////////////////////////////////GRAFICA 1//////////////////////////////////////////////////////////////////////////
-var margin = {top: 20, right: 30, bottom: 40, left: 90},
+var margin = {top: 20, right: 10, bottom: 40, left: 120},
     width = WidthCaja - margin.left - margin.right,
     height = HeightCaja - margin.top - margin.bottom;
     var svg = d3.select("#Grafica1")
@@ -14,8 +14,23 @@ var margin = {top: 20, right: 30, bottom: 40, left: 90},
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datatrabajo1.csv", function(data) {
+
+//Aqui Llenamos el Combo de la Gráfica
+var headerNames = d3.keys(data[0]);
+console.log(headerNames)
+const ComboSelect = d3.select("#Combo1")
+ComboSelect
+  .selectAll("option")
+  .data(headerNames)
+  .enter()
+  .append("option")
+  .attr("value", (d) => d)
+  .text((d) => d)
+//Aqui Llenamos el Combo de la Gráfica
+
+var max = d3.max(data.map(d => parseFloat(d.Hombre)));
 var x = d3.scaleLinear()
-    .domain([0, 13000])
+    .domain([0, max])
     .range([ 0, width]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -25,7 +40,7 @@ var x = d3.scaleLinear()
       .style("text-anchor", "end");
   var y = d3.scaleBand()
     .range([ 0, height ])
-    .domain(data.map(function(d) { return d.Country; }))
+    .domain(data.map(function(d) { return d.Municipio; }))
     .padding(.1);
   svg.append("g")
     .call(d3.axisLeft(y))
@@ -34,8 +49,8 @@ var x = d3.scaleLinear()
     .enter()
     .append("rect")
     .attr("x", x(0) )
-    .attr("y", function(d) { return y(d.Country); })
-    .attr("width", function(d) { return x(d.Value); })
+    .attr("y", function(d) { return y(d.Municipio); })
+    .attr("width", function(d) { return x(d.Hombre); })
     .attr("height", y.bandwidth() )
     .attr("fill", "#69b3a2")
 })
