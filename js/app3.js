@@ -15,7 +15,7 @@ var svg3 = d3.select("#Grafica3")
           "translate(" + margin3.left + "," + margin3.top + ")");
 
 
-d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/data3.csv",function(data) {
+d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/data4.csv",function(data) {
 
   var x = d3.scaleLinear()
     .domain([1,100])
