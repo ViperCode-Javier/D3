@@ -14,7 +14,6 @@ var margin = {top: 20, right: 10, bottom: 40, left: 120},
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datatrabajo1.csv", function(data) {
-
 //Aqui Llenamos el Combo de la Gráfica
 var headerNames = d3.keys(data[0]);
 console.log(headerNames)
@@ -27,7 +26,6 @@ ComboSelect
   .attr("value", (d) => d)
   .text((d) => d)
 //Aqui Llenamos el Combo de la Gráfica
-
 var max = d3.max(data.map(d => parseFloat(d.Hombre)));
 var x = d3.scaleLinear()
     .domain([0, max])
