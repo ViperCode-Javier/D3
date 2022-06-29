@@ -11,7 +11,7 @@ var Svg2 = d3.select("#Grafica2")
   .append("g")
     .attr("transform",
           "translate(" + margin2.left + "," + margin2.top + ")")
-d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/data3.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/data2.csv", function(data) {
 
   var x2 = d3.scaleLinear()
     .domain([4*0.95, 8*1.001])
