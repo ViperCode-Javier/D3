@@ -2,8 +2,12 @@
 /////////////////////////////////////////////////////////////////////////////////CONSTANTESGLOBALES///////////////////////////////////////////////////////////////////
 const WidthCaja = 480
 const HeightCaja =400
-/////////////////////////////////////////////////////////////////////////////////GRAFICA 1//////////////////////////////////////////////////////////////////////////
 
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////GRAFICA 1//////////////////////////////////////////////////////////////////////////
 var margin = {top: 20, right: 10, bottom: 40, left: 90},
     width = WidthCaja - margin.left - margin.right,
     height = HeightCaja - margin.top - margin.bottom;
@@ -39,10 +43,9 @@ var x = d3.scaleLinear()
     .domain([0, max])
     .range([ 0, width]);
   svg.append("g")
-      .attr("ID", "Fig1")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x))
-       .selectAll("text")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .selectAll("text")
       .attr("transform", "translate(-10,0)rotate(-0)")
       .style("text-anchor", "end");
   var y = d3.scaleBand()
@@ -62,6 +65,6 @@ var x = d3.scaleLinear()
     .attr("fill", "#69b3a2")
 })
 
-function actualizardata1() { 
+function actualizardata1() {  
 }
 
