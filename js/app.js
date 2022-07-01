@@ -57,12 +57,12 @@ svg.selectAll("myRect")
   .attr("y", function(d) { return y(d.Municipio); })
   .attr("width", function(d) { return x(d.Hombre); })
   .attr("height", y.bandwidth() )
-  .attr("fill", "#69b3a2")
+  .attr("fill", "#0C4B68 ")
 })
 
 function actualizardata1(){
 
 
 
-  
+
 }

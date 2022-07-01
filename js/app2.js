@@ -12,9 +12,28 @@ var Svg2 = d3.select("#Grafica2")
     .attr("transform",
           "translate(" + margin2.left + "," + margin2.top + ")")
 d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datatrabajo2.csv", function(data) {
-
+//Aqui Llenamos el Combo de la Gráfica
+var headerNames2 = d3.keys(data[0]);
+var FirstHeader2 = headerNames2[1]; 
+const ComboSelect2 = d3.select("#Combo2")
+ComboSelect2
+.selectAll("option")
+.data(headerNames2)
+.enter()
+.append("option")
+.attr("value", (d) => d)
+.text((d) => d)
+d3.select('#Combo2').property('value', FirstHeader2);
+//Aqui seleccionamos el primer elemento de la Grafica
+data.sort(function(a, b){
+  return b[FirstHeader2]-a[FirstHeader2];
+  });
+///Aqui ordenamos los datos
+var max2 = d3.max(data.map(d => parseFloat(d.Hombre)));
+console.log(FirstHeader2)
   var x2 = d3.scaleLinear()
-    .domain([4*0.95, 8*1.001])
+    //.domain([4*0.95, 8*1.001])
+    .domain([0,200000])
     .range([ 0, width2 ])
   Svg2.append("g")
     .attr("transform", "translate(0," + height2 + ")")
@@ -23,7 +42,7 @@ d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datatrabajo2.
 
 
   var y2 = d3.scaleLinear()
-    .domain([-0.001, 9*1.01])
+    .domain([0, 15000])
     .range([ height2, 0])
     .nice()
   Svg2.append("g")
@@ -46,17 +65,17 @@ d3.csv("https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datatrabajo2.
       .text("Petal Length")
 
   var color2 = d3.scaleOrdinal()
-    .domain(["setosa", "versicolor", "virginica" ])
-    .range([ "#402D54", "#D18975", "#8FD175"])
+    .domain(["Menos15", "De15a30" ])
+    .range([ "#402D54", "#D18975"])
 
   Svg2.append('g')
     .selectAll("dot")
     .data(data)
     .enter()
     .append("circle")
-      .attr("cx", function (d) { return x2(d.Sepal_Length); } )
-      .attr("cy", function (d) { return y2(d.Petal_Length); } )
+      .attr("cx", function (d) { return x2(d.Menos15); } )
+      .attr("cy", function (d) { return y2(d.De15a30); } )
       .attr("r", 5)
-      .style("fill", function (d) { return color2(d.Species) } )
+      .style("fill", function (d) { return color2(d.Municipio) } )
 
 })
