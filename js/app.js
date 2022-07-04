@@ -107,7 +107,7 @@ const draw = async (el = "#Grafica1") => {
     .attr("x", function(d) { return x(d[primeracolumna]); })
     .attr("y", (d) => y(yAccessor(d)))
     .text(function(d) { return x(d[primeracolumna]);})
-    .classed("etiquetax", true)
+    //.classed("etiquetax", true)
     
     
 };
