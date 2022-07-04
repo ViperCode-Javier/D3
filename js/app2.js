@@ -22,9 +22,9 @@ const draw2 = async (el = "#Grafica2") => {
   }
   //En este caso el valor de la columna es el valor del combo
   primeracolumna2 = val2;
-
-  //let max2 = d3.max(data2.map((d) => d[primeracolumna2]));
-  let max2 = 10000;
+  console.log(primeracolumna2)
+  let max2 = d3.max(data2.map((d) => d.65_awos_y_mas));
+  //let max2 = 100000;
   //Ordenamos y Sacamos el Maximo
   data2.sort(function (a, b) {
     return d3.descending(a[primeracolumna2], b[primeracolumna2]);
@@ -66,6 +66,8 @@ const draw2 = async (el = "#Grafica2") => {
 
   rsvg2.append("g").call(d3.axisLeft(y));
 
+ 
+
   rsvg2
     .selectAll("myRect2")
     .data(data2)
@@ -73,15 +75,14 @@ const draw2 = async (el = "#Grafica2") => {
     .append("rect")
     .transition()
     .duration(1000)
-    .ease(d3.easeBounce)
     .attr("x", x(0))
     .attr("y", (d) => y(d.Grupo_edad))
-    //.attr("width", (d) => d[primeracolumna2])
-    .attr("width", 5000)
+    .attr("width", function (d) {
+      return x(d[primeracolumna2]);
+    })
     .attr("height", y.bandwidth())
     .attr("fill", "#46B960");
 
-      
 
   /// agregamos los Etiquetas de las Barras
   const g = rsvg2
@@ -93,7 +94,7 @@ const draw2 = async (el = "#Grafica2") => {
     .enter()
     .append("text")
     .attr("x", function (d) {
-      return x(d[primeracolumna]);
+      return x(d[primeracolumna2]);
     })
     .attr("y", (d) => y(yAccessor2(d)))
     .merge(etiquetas)
@@ -101,7 +102,7 @@ const draw2 = async (el = "#Grafica2") => {
     .duration(1000)
     .attr("x", 10000)
     .attr("y", (d) => y(yAccessor2(d)))
-    .text((d) => d[primeracolumna])
+    .text((d) => d[primeracolumna2])
     .attr("class", "etiquetax");
 };
 draw2();

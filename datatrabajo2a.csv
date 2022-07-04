@@ -1,4 +1,4 @@
-mun,Municipio,Grupo_edad,Ausentes_temporales_con_vnculo_laboral,Menos_de_15_horas,De_15_a_34_horas,De_35_a_48_horas,Mas_de_48_horas,No_especificado
+mun,Municipio,Grupo_edad,Austempconvnculolab,Menos15hrs,De15a34hrs,De35a48hrs,Masde48hrs,No_especificado
 2,Azcapotzalco,15_a_24_awos,839,3616,4279,16457,6368,0
 2,Azcapotzalco,25_a_44_awos,2822,2104,22914,62495,26824,747
 2,Azcapotzalco,45_a_64_awos,10977,1565,13320,42332,13513,869
