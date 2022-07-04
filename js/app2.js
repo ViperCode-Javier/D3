@@ -36,6 +36,8 @@ const draw2 = async (el = "#Grafica2") => {
 
   //En este caso el valor de la columna es el valor del combo
   let max2 = d3.max(data2.map((d) => d[primeracolumna2]));
+  max2 = max2 + 1200;
+
   //Ordenamos y Sacamos el Maximo
   data2.sort(function (a, b) {
     return d3.descending(a[primeracolumna2], b[primeracolumna2]);
@@ -44,8 +46,8 @@ const draw2 = async (el = "#Grafica2") => {
   // Accessors
   const yAccessor2 = (d) => d.Municipio;
   //const yAccessor2 = (d) => d[primeracolumna2];
-  const margin = { top: 20, right: 10, bottom: 40, left: 90 },
-    width = WidthCaja - margin.left - margin.right,
+  const margin = { top: 20, right: 90, bottom: 40, left: 90 },
+    width = WidthCaja+100 - margin.left - margin.right,
     height = HeightCaja - margin.top - margin.bottom;
 
   const rsvg2 = d3
@@ -95,7 +97,7 @@ const draw2 = async (el = "#Grafica2") => {
   /// agregamos los Etiquetas de las Barras
   const g = rsvg2
     .append("g")
-    .attr("transform", `translate(${margin.left - 95},${margin.top})`);
+    .attr("transform", `translate(${margin.left - 60},${margin.top})`);
   const et2 = g.append("g");
   const etiquetas2 = et2.selectAll("text").data(data2);
   etiquetas2

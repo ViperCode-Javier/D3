@@ -40,7 +40,7 @@ const draw = async (el = "#Grafica1") => {
   // Accessors
   const yAccessor = (d) => d.Municipio;
   const margin = { top: 20, right: 80, bottom: 40, left: 90 },
-    width = WidthCaja - margin.left - margin.right,
+    width = WidthCaja+150 - margin.left - margin.right,
     height = HeightCaja - margin.top - margin.bottom;
 
   const svg = d3
@@ -57,7 +57,7 @@ const draw = async (el = "#Grafica1") => {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x))
     .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-)")
+    .attr("transform", "translate(-10,0)rotate(-45)")
     .style("text-anchor", "end");
 
   const y = d3
