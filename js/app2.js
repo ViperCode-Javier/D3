@@ -38,8 +38,10 @@ const draw2 = async (el = "#Grafica2") => {
     console.log(val2)   
   }
 
-  let max2 = d3.max2(data2.map((d) => d[primeracolumna2]));
- 
+    primeracolumna2='De_15_a_34_horas'
+  
+  //let max2 = d3.max2(data2.map((d) => d[primeracolumna2]));
+ let max2=15000 
   //Ordenamos y Sacamos el Maximo
   data2.sort(function (a, b) {
     return d3.descending(a[primeracolumna2], b[primeracolumna2]);
