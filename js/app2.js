@@ -3,7 +3,7 @@ let primeracolumna2 = "";
 
 const draw2 = async (el = "#Grafica2") => {
   let data2 = await d3.csv(
-    "https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datatrabajo2b.csv",
+    "https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datatrabajo2c.csv",
     d3.autoType
   );
 
