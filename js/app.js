@@ -32,15 +32,14 @@ const draw = async (el = "#Grafica1") => {
   }
 
   let max = d3.max(data.map((d) => d[primeracolumna]));
-  max=max+1000
+  max=max+1200
   //Ordenamos y Sacamos el Maximo
   data.sort(function (a, b) {
     return d3.descending(a[primeracolumna], b[primeracolumna]);
   });
-
   // Accessors
   const yAccessor = (d) => d.Municipio;
-  const margin = { top: 20, right: 10, bottom: 40, left: 90 },
+  const margin = { top: 20, right: 80, bottom: 40, left: 90 },
     width = WidthCaja - margin.left - margin.right,
     height = HeightCaja - margin.top - margin.bottom;
 
@@ -71,6 +70,8 @@ const draw = async (el = "#Grafica1") => {
     )
     .padding(0.1);
 
+
+
   svg.append("g").call(d3.axisLeft(y));
 
   svg
@@ -80,10 +81,8 @@ const draw = async (el = "#Grafica1") => {
     .append("rect")
     .transition()
     .duration(1000)
-    //.ease(d3.easeBounce)
     .attr("x", x(0))
     .attr("y", (d) => y(yAccessor(d)))
-    //.attr("width", (d) => x(xAccessor(d)))
     .attr("width", function (d) {
       return x(d[primeracolumna]);
     })
@@ -92,7 +91,7 @@ const draw = async (el = "#Grafica1") => {
 
   const g = svg
     .append("g")
-    .attr("transform", `translate(${margin.left-90},${margin.top})`);
+    .attr("transform", `translate(${margin.left-65},${margin.top})`);
   const et = g.append("g");
   const etiquetas = et.selectAll("text").data(data);
   etiquetas
@@ -103,12 +102,10 @@ const draw = async (el = "#Grafica1") => {
     .merge(etiquetas)
     .transition()
     .duration(1000)
-    .ease(d3.easeBounce)
     .attr("x", function(d) { return x(d[primeracolumna]); })
     .attr("y", (d) => y(yAccessor(d)))
-    .text(function(d) { return x(d[primeracolumna]);})
-    //.classed("etiquetax", true)
-    
+    .text(((d) => d[primeracolumna]))
+    .attr('class', 'etiquetax')  
     
 };
 draw();
