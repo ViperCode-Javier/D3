@@ -27,12 +27,12 @@ const draw = async (el = "#Grafica1") => {
   //Seleccionamos el primer filtro
   if (ComboSelect.empty()) {
    primeracolumna = data.columns[1]; 
-   console.log(primeracolumna)     
+     
   }
   else
   {
     primeracolumna =val 
-    console.log(val)   
+  
   }
 
   let max = d3.max(data.map((d) => d[primeracolumna]));
