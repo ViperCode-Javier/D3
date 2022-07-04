@@ -1,5 +1,4 @@
-
-let primeracolumna2 = ""
+let primeracolumna2 = "";
 ////////////////////////////////////////////////////////////////////////////////GRAFICA 2//////////////////////////////////////////////////////////////////////////
 
 const draw2 = async (el = "#Grafica2") => {
@@ -11,39 +10,29 @@ const draw2 = async (el = "#Grafica2") => {
   const ComboSelect2 = d3.select("#Combo2");
   let len2 = document.getElementById("Combo2").length;
   let val2 = document.getElementById("Combo2").value;
-  if (len2==1) {    
-    const Municipio = Array.from(new Set(data2.map((d) => d.Grupo_edad)))
-    const ComboSelect2 = d3.select("#Combo2")
-       ComboSelect2
-      .selectAll("option")
+  if (len2 == 1) {
+    const Municipio = Array.from(new Set(data2.map((d) => d.Grupo_edad)));
+    const ComboSelect2 = d3.select("#Combo2");
+    ComboSelect2.selectAll("option")
       .data(Municipio)
       .enter()
       .append("option")
       .attr("value", (d) => d)
-      .text((d) => d)  
+      .text((d) => d);
   }
-  
-  //Seleccionamos el primer filtro
-  if (ComboSelect2.empty()) {
-   primeracolumna2 = data2.columns[1]; 
-  
-  }
-  else
-  {
-    primeracolumna2 =val2     
-  }
-    primeracolumna2=val2 
-  
-  //let max2 = d3.max(data2.map((d) => d[primeracolumna2]));
+  //En este caso el valor de la columna es el valor del combo
+  primeracolumna2 = val2;
 
- let max2=60000
+  //let max2 = d3.max(data2.map((d) => d[primeracolumna2]));
+  let max2 = 10000;
   //Ordenamos y Sacamos el Maximo
   data2.sort(function (a, b) {
     return d3.descending(a[primeracolumna2], b[primeracolumna2]);
   });
 
-// Accessors
-  const yAccessor2 = (d) => d.Grupo_edad
+  // Accessors
+  const yAccessor2 = (d) => d.Grupo_edad;
+  const xAccessor2 = (d) => d[primeracolumna2];
   const margin = { top: 20, right: 10, bottom: 40, left: 90 },
     width = WidthCaja - margin.left - margin.right,
     height = HeightCaja - margin.top - margin.bottom;
@@ -56,7 +45,7 @@ const draw2 = async (el = "#Grafica2") => {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
- const x = d3.scaleLinear().domain([0, max2]).range([0, width]);
+  const x = d3.scaleLinear().domain([0, max2]).range([0, width]);
   rsvg2
     .append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -68,11 +57,12 @@ const draw2 = async (el = "#Grafica2") => {
   const y = d3
     .scaleBand()
     .range([0, height])
-  .domain(
+    .domain(
       data2.map(function (d) {
         return d.Grupo_edad;
-     })    )
-     .padding(0.1);
+      })
+    )
+    .padding(0.1);
 
   rsvg2.append("g").call(d3.axisLeft(y));
 
@@ -85,28 +75,40 @@ const draw2 = async (el = "#Grafica2") => {
     .duration(1000)
     .ease(d3.easeBounce)
     .attr("x", x(0))
-    //.attr("y", (d) => y(yAccessor2(d)))
     .attr("y", (d) => y(d.Grupo_edad))
-        
-    //.attr("width", (d) => x(xAccessor(d)))
-    .attr("width",  function(d) { return x(d[primeracolumna2]); })
-    //.attr("width",  function(d) { return x(d.Grupo_edad); })
+    //.attr("width", (d) => d[primeracolumna2])
+    .attr("width", 5000)
     .attr("height", y.bandwidth())
-    .attr("fill", "#457b9d");   
+    .attr("fill", "#46B960");
 
-    
-   
+      
+
+  /// agregamos los Etiquetas de las Barras
+  const g = rsvg2
+    .append("g")
+    .attr("transform", `translate(${margin.left - 65},${margin.top})`);
+  const et = g.append("g");
+  const etiquetas = et.selectAll("text").data(data2);
+  etiquetas
+    .enter()
+    .append("text")
+    .attr("x", function (d) {
+      return x(d[primeracolumna]);
+    })
+    .attr("y", (d) => y(yAccessor2(d)))
+    .merge(etiquetas)
+    .transition()
+    .duration(1000)
+    .attr("x", 10000)
+    .attr("y", (d) => y(yAccessor2(d)))
+    .text((d) => d[primeracolumna])
+    .attr("class", "etiquetax");
 };
-draw2()
+draw2();
 
-d3.select("#Combo2").on("change", () => {    
- d3.selectAll("svg").remove(); 
- d3.select("rsvg2").remove(); 
- draw()
- draw2()
-})
-
-
-
-
-
+d3.select("#Combo2").on("change", () => {
+  d3.selectAll("svg").remove();
+  d3.select("rsvg2").remove();
+  draw();
+  draw2();
+});

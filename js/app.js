@@ -32,7 +32,7 @@ const draw = async (el = "#Grafica1") => {
   }
 
   let max = d3.max(data.map((d) => d[primeracolumna]));
-  max=max+1200
+  max = max + 1200;
   //Ordenamos y Sacamos el Maximo
   data.sort(function (a, b) {
     return d3.descending(a[primeracolumna], b[primeracolumna]);
@@ -70,8 +70,6 @@ const draw = async (el = "#Grafica1") => {
     )
     .padding(0.1);
 
-
-
   svg.append("g").call(d3.axisLeft(y));
 
   svg
@@ -89,24 +87,28 @@ const draw = async (el = "#Grafica1") => {
     .attr("height", y.bandwidth())
     .attr("fill", "#457b9d");
 
+  /// agregamos los Etiquetas de las Barras
   const g = svg
     .append("g")
-    .attr("transform", `translate(${margin.left-65},${margin.top})`);
+    .attr("transform", `translate(${margin.left - 65},${margin.top})`);
   const et = g.append("g");
   const etiquetas = et.selectAll("text").data(data);
   etiquetas
     .enter()
     .append("text")
-    .attr("x", function(d) { return x(d[primeracolumna]); })
-    .attr("y",  (d) => y(yAccessor(d)))
+    .attr("x", function (d) {
+      return x(d[primeracolumna]);
+    })
+    .attr("y", (d) => y(yAccessor(d)))
     .merge(etiquetas)
     .transition()
     .duration(1000)
-    .attr("x", function(d) { return x(d[primeracolumna]); })
+    .attr("x", function (d) {
+      return x(d[primeracolumna]);
+    })
     .attr("y", (d) => y(yAccessor(d)))
-    .text(((d) => d[primeracolumna]))
-    .attr('class', 'etiquetax')  
-    
+    .text((d) => d[primeracolumna])
+    .attr("class", "etiquetax");
 };
 draw();
 
