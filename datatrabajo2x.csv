@@ -1,0 +1,72 @@
+Municipio,Grupo_edad,AusentesTemporales,Menos15,De15a30,de35a48,Mas48
+Azcapotzalco,15 a 24 anos,839,3616,4279,16457,6368
+Azcapotzalco,25 a 44 anos,2822,2104,22914,62495,26824
+Azcapotzalco,45 a 64 anos,10977,1565,13320,42332,13513
+Azcapotzalco,65 anos y mas,896,2571,1718,5646,
+Coyoacan,15 a 24 anos,,9130,3606,9616,10479
+Coyoacan,25 a 44 anos,9030,5840,10980,73201,23755
+Coyoacan,45 a 64 anos,1875,5955,20453,34994,27156
+Coyoacan,65 anos y mas,,1317,13620,8276,2987
+Cuajimalpa de Morelos,No aplica,,674,,,
+Cuajimalpa de Morelos,15 a 24 anos,,3662,3022,7265,2988
+Cuajimalpa de Morelos,25 a 44 anos,674,2280,4844,20573,23783
+Cuajimalpa de Morelos,45 a 64 anos,,2951,4032,10237,8230
+Cuajimalpa de Morelos,65 anos y mas,,,1574,1873,
+Gustavo A. Madero,No aplica,,,,2925,
+Gustavo A. Madero,15 a 24 anos,883,3570,11217,29213,9739
+Gustavo A. Madero,25 a 44 anos,8790,4744,15784,99525,49405
+Gustavo A. Madero,45 a 64 anos,7179,13521,30255,90624,65905
+Gustavo A. Madero,65 anos y mas,973,3427,5955,3985,8450
+Gustavo A. Madero,Edad no especificado,,,,1829,
+Iztacalco,No aplica,,840,,,
+Iztacalco,15 a 24 anos,,1650,2058,7459,2215
+Iztacalco,25 a 44 anos,2447,2172,4004,52156,26636
+Iztacalco,45 a 64 anos,,2449,7233,24866,21752
+Iztacalco,65 anos y mas,965,,2816,4035,965
+Iztapalapa,No aplica,,1443,1373,,
+Iztapalapa,15 a 24 anos,3395,7227,26075,37013,24587
+Iztapalapa,25 a 44 anos,13899,16495,52070,172535,122839
+Iztapalapa,45 a 64 anos,13674,14990,48737,123535,67048
+Iztapalapa,65 anos y mas,3409,4085,9541,17967,11920
+Iztapalapa,Edad no especificado,,,,1918,
+La Magdalena Contreras,15 a 24 anos,899,2652,2800,4099,3297
+La Magdalena Contreras,25 a 44 anos,2774,4382,12086,13560,18160
+La Magdalena Contreras,45 a 64 anos,,2603,8338,12090,16412
+La Magdalena Contreras,65 anos y mas,,716,3823,1862,1791
+Milpa Alta,15 a 24 anos,,2198,4108,1212,606
+Milpa Alta,25 a 44 anos,,2065,2904,6263,9026
+Milpa Alta,45 a 64 anos,202,1099,4281,14061,6074
+Milpa Alta,65 anos y mas,,,1968,966,966
+Alvaro Obregon,No aplica,,,,806,
+Alvaro Obregon,15 a 24 anos,,3761,4339,19198,12440
+Alvaro Obregon,25 a 44 anos,11271,7842,33573,78540,63395
+Alvaro Obregon,45 a 64 anos,5179,4585,15480,54488,29004
+Alvaro Obregon,65 anos y mas,1794,7447,1103,6359,
+Tlahuac,15 a 24 anos,,3265,7044,11927,6656
+Tlahuac,25 a 44 anos,4550,2135,13547,63662,37518
+Tlahuac,45 a 64 anos,2312,7341,10758,30315,27072
+Tlahuac,65 anos y mas,1473,961,1263,2685,2057
+Tlalpan,15 a 24 anos,,1399,10660,16116,8115
+Tlalpan,25 a 44 anos,7669,8601,31755,74979,40634
+Tlalpan,45 a 64 anos,10670,5129,24617,56838,33169
+Tlalpan,65 anos y mas,1327,979,9270,5711,2682
+Xochimilco,15 a 24 anos,929,2526,6597,11598,4671
+Xochimilco,25 a 44 anos,3714,4148,13814,57854,45737
+Xochimilco,45 a 64 anos,2107,8591,11991,32817,29610
+Xochimilco,65 anos y mas,,1413,3007,5857,2751
+Benito Juarez,15 a 24 anos,,,7711,2623,
+Benito Juarez,25 a 44 anos,2623,,20929,53675,36212
+Benito Juarez,45 a 64 anos,4046,5576,26042,49146,16043
+Benito Juarez,65 anos y mas,,1238,2084,4720,
+Cuauhtemoc,15 a 24 anos,,810,2656,4713,19051
+Cuauhtemoc,25 a 44 anos,9701,5022,22324,75127,53327
+Cuauhtemoc,45 a 64 anos,4102,5771,17502,52941,30092
+Cuauhtemoc,65 anos y mas,,,3753,2940,10496
+Miguel Hidalgo,15 a 24 anos,,,2519,600,2109
+Miguel Hidalgo,25 a 44 anos,3532,,9146,58112,32106
+Miguel Hidalgo,45 a 64 anos,7706,,7062,24706,10745
+Miguel Hidalgo,65 anos y mas,,1395,3418,925,1499
+Venustiano Carranza,15 a 24 anos,,,1845,9381,4849
+Venustiano Carranza,25 a 44 anos,6704,5580,15960,53923,36629
+Venustiano Carranza,45 a 64 anos,7127,3651,11371,44861,38546
+Venustiano Carranza,65 anos y mas,1164,3300,4793,2699,6083
