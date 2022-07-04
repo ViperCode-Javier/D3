@@ -3,7 +3,7 @@ let primeracolumna2 = "";
 
 const draw2 = async (el = "#Grafica2") => {
   let data2 = await d3.csv(
-    "https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datatrabajo2a.csv",
+    "https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datatrabajo2b.csv",
     d3.autoType
   );
 
@@ -11,10 +11,17 @@ const draw2 = async (el = "#Grafica2") => {
   let len2 = document.getElementById("Combo2").length;
   let val2 = document.getElementById("Combo2").value;
   if (len2 == 1) {
-    const Municipio = Array.from(new Set(data2.map((d) => d.Grupo_edad)));
-    const ComboSelect2 = d3.select("#Combo2");
+    //const Municipio = Array.from(new Set(data2.map((d) => d.Municipio)));
+    //const ComboSelect2 = d3.select("#Combo2");
+    //ComboSelect2.selectAll("option")
+    //  .data(Municipio)
+    //  .enter()
+    //  .append("option")
+    //  .attr("value", (d) => d)
+    //  .text((d) => d);
+    let headerNames = data2.columns;
     ComboSelect2.selectAll("option")
-      .data(Municipio)
+      .data(headerNames)
       .enter()
       .append("option")
       .attr("value", (d) => d)
