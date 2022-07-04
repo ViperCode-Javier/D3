@@ -19,27 +19,31 @@ const draw2 = async (el = "#Grafica2") => {
     //  .append("option")
     //  .attr("value", (d) => d)
     //  .text((d) => d);
-    let headerNames = data2.columns;
+    let headerNames2 = data2.columns;
     ComboSelect2.selectAll("option")
-      .data(headerNames)
+      .data(headerNames2)
       .enter()
       .append("option")
       .attr("value", (d) => d)
       .text((d) => d);
   }
+  //Seleccionamos el primer filtro
+  if (ComboSelect2.empty()) {
+    primeracolumna2 = data2.columns[1];
+  } else {
+    primeracolumna2 = val2;
+  }
+
   //En este caso el valor de la columna es el valor del combo
-  primeracolumna2 = val2;
-  console.log(primeracolumna2)
   let max2 = d3.max(data2.map((d) => d[primeracolumna2]));
-  //let max2 = 100000;
   //Ordenamos y Sacamos el Maximo
   data2.sort(function (a, b) {
     return d3.descending(a[primeracolumna2], b[primeracolumna2]);
   });
 
   // Accessors
-  const yAccessor2 = (d) => d.Grupo_edad;
-  const xAccessor2 = (d) => d[primeracolumna2];
+  const yAccessor2 = (d) => d.Municipio;
+  //const yAccessor2 = (d) => d[primeracolumna2];
   const margin = { top: 20, right: 10, bottom: 40, left: 90 },
     width = WidthCaja - margin.left - margin.right,
     height = HeightCaja - margin.top - margin.bottom;
@@ -58,7 +62,7 @@ const draw2 = async (el = "#Grafica2") => {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x))
     .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-0)")
+    .attr("transform", "translate(-10,0)rotate(-45)")
     .style("text-anchor", "end");
 
   const y = d3
@@ -66,14 +70,12 @@ const draw2 = async (el = "#Grafica2") => {
     .range([0, height])
     .domain(
       data2.map(function (d) {
-        return d.Grupo_edad;
+        return d.Municipio;
       })
     )
     .padding(0.1);
 
   rsvg2.append("g").call(d3.axisLeft(y));
-
- 
 
   rsvg2
     .selectAll("myRect2")
@@ -83,31 +85,32 @@ const draw2 = async (el = "#Grafica2") => {
     .transition()
     .duration(1000)
     .attr("x", x(0))
-    .attr("y", (d) => y(d.Grupo_edad))
+    .attr("y", (d) => y(d.Municipio))
     .attr("width", function (d) {
       return x(d[primeracolumna2]);
     })
     .attr("height", y.bandwidth())
     .attr("fill", "#46B960");
 
-
   /// agregamos los Etiquetas de las Barras
   const g = rsvg2
     .append("g")
     .attr("transform", `translate(${margin.left - 65},${margin.top})`);
-  const et = g.append("g");
-  const etiquetas = et.selectAll("text").data(data2);
-  etiquetas
+  const et2 = g.append("g");
+  const etiquetas2 = et2.selectAll("text").data(data2);
+  etiquetas2
     .enter()
     .append("text")
     .attr("x", function (d) {
       return x(d[primeracolumna2]);
     })
     .attr("y", (d) => y(yAccessor2(d)))
-    .merge(etiquetas)
+    .merge(etiquetas2)
     .transition()
     .duration(1000)
-    .attr("x", 10000)
+    .attr("x", function (d) {
+      return x(d[primeracolumna2]);
+    })
     .attr("y", (d) => y(yAccessor2(d)))
     .text((d) => d[primeracolumna2])
     .attr("class", "etiquetax");
