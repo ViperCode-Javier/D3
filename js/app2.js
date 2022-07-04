@@ -46,7 +46,7 @@ const draw2 = async (el = "#Grafica2") => {
   });
 
 // Accessors
-  const yAccessor2 = (d) => d.Municipio
+  const yAccessor2 = (d) => d.Grupo_edad
   const margin = { top: 20, right: 10, bottom: 40, left: 90 },
     width = WidthCaja - margin.left - margin.right,
     height = HeightCaja - margin.top - margin.bottom;
@@ -73,7 +73,7 @@ const draw2 = async (el = "#Grafica2") => {
     .range([0, height])
   .domain(
       data2.map(function (d) {
-        return d.Municipio;
+        return d.Grupo_edad;
      })    )
      .padding(0.1);
 
