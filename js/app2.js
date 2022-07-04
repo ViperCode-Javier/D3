@@ -19,9 +19,9 @@ const draw2 = async (el = "#Grafica2") => {
     //  .append("option")
     //  .attr("value", (d) => d)
     //  .text((d) => d);
-    let headerNames2 = data2.columns;
+    let headerNames2 = data2.columns.slice();
     ComboSelect2.selectAll("option")
-      .data(headerNames2)
+      .data(headerNames2.slice(2))
       .enter()
       .append("option")
       .attr("value", (d) => d)
