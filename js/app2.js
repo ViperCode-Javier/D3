@@ -3,7 +3,7 @@ let primeracolumna2 = "";
 
 const draw2 = async (el = "#Grafica2") => {
   let data2 = await d3.csv(
-    "https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datatrabajo2c.csv",
+    "https://raw.githubusercontent.com/ViperCode-Javier/D3/main/datatrabajo2d.csv",
     d3.autoType
   );
 
@@ -95,7 +95,7 @@ const draw2 = async (el = "#Grafica2") => {
   /// agregamos los Etiquetas de las Barras
   const g = rsvg2
     .append("g")
-    .attr("transform", `translate(${margin.left - 65},${margin.top})`);
+    .attr("transform", `translate(${margin.left - 95},${margin.top})`);
   const et2 = g.append("g");
   const etiquetas2 = et2.selectAll("text").data(data2);
   etiquetas2
