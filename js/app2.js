@@ -23,7 +23,7 @@ const draw2 = async (el = "#Grafica2") => {
   //En este caso el valor de la columna es el valor del combo
   primeracolumna2 = val2;
   console.log(primeracolumna2)
-  let max2 = d3.max(data2.map((d) => d.65_awos_y_mas));
+  let max2 = d3.max(data2.map((d) => d[primeracolumna2]));
   //let max2 = 100000;
   //Ordenamos y Sacamos el Maximo
   data2.sort(function (a, b) {
